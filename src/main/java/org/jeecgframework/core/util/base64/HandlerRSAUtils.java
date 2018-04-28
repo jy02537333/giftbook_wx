@@ -69,5 +69,17 @@ public class HandlerRSAUtils {
         String restr=new String(res);  
 		return restr;
 	}
-	
+
+	public static void main(String[] args) {
+		try {
+			String aaa=	HandlerRSAUtils.encode("{1:2}");
+			String bbbb=	HandlerRSAUtils.decryption(aaa);
+
+			BASE64Encoder encoder=new BASE64Encoder();
+			 bbbb=	encoder.encode("123456".getBytes());
+			System.out.println(bbbb);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

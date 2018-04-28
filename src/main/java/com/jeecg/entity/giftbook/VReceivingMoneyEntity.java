@@ -87,8 +87,6 @@ public class VReceivingMoneyEntity implements java.io.Serializable {
 	 *@return: java.lang.String  Id
 	 */
 	@Id
-	@GeneratedValue(generator = "paymentableGenerator")
-	@GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
 	@Column(name ="ID",nullable=false,length=32)
 	public String getId(){
 		return this.id;

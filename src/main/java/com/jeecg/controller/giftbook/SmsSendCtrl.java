@@ -48,7 +48,7 @@ public class SmsSendCtrl extends BaseController {
 		AjaxJson j = new AjaxJson();
 
 		try {
-			
+
 			int code= sendCode(ComUtil.getParam(request, "phone"));
 			if(code>0)
 			{
@@ -76,7 +76,7 @@ public class SmsSendCtrl extends BaseController {
 	 */
 	public int sendInvitationInfo(String phone,String invitationName,String invitationId)
 	{
-		
+
 		try {
 		TaobaoClient client = new DefaultTaobaoClient("http://gw.api.taobao.com/router/rest", appKey, secret);
 		AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
@@ -99,7 +99,7 @@ public class SmsSendCtrl extends BaseController {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
+
 		return 0;
 	}
 	public int sendCode(String phone)
@@ -127,7 +127,7 @@ public class SmsSendCtrl extends BaseController {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
+
 		return 0;
 	}
 	public int getCode()

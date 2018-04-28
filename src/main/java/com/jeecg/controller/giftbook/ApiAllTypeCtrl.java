@@ -81,7 +81,7 @@ public class ApiAllTypeCtrl extends BaseController {
 					cq.addOrder("createdate", SortDirection.desc);
 					cq.add();
 					this.vGroupAndMemberServiceI.getDataGridReturn(cq, true);
-					List<GroupmemberEntity> list=dataGrid.getResults();
+					List<VGroupAndMemberEntity> list=dataGrid.getResults();
 				map.put("sidekickerGroups", list);
 				map.put("gifttypes", gifttypeService.findByProperty(
 						GifttypeEntity.class, "userid", useridString));

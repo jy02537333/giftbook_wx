@@ -107,9 +107,11 @@ public class TokenVerifyTool {
 			return sysUserEntity;
 		}
 		try {
-			byte[] bytes=new BASE64Decoder().decodeBuffer(info);
-			String entity=new String(bytes);
+//			byte[] bytes=new BASE64Decoder().decodeBuffer(info);
+//			String entity=new String(bytes);
+			String entity=HandlerRSAUtils.decryption(info);
 			SysUserEntity user=	JSONHelper.fromJsonToObject(entity, SysUserEntity.class);
+			user =new SysUserEntity(user.getN(),user.getP(),user.getO(),user.getD(),user.getT());
 			if(user!=null&&user.getLoginname()!=null)
 			{
 				return user;
@@ -122,6 +124,13 @@ public class TokenVerifyTool {
 	public static void main(String[] args) {
 		String str="3GapWQXinMjm+dTQ1LHaxTp9LT0+zmDwDZrW+V0oA+I0edpRedlGAvcJomv2hwB/1Iapu+O5kVKZ2MUUbLxz/2xAJG/3GCaimMAPkJDcsNNsQCRv9xgmonYTJoQATmS0zFBbSnISJ9NTQ55ZUtnmn8KNCqg95E+KIXhMWjHoKr3pSDTZMdlyRHd9DnEObV/VeJtJ86ZcjvloT0zNeHuZI51muEFbDzbDWgDcC1193HMWbK9KuzeTxg==";
 		String str2="3GapWQXinMjm+dTQ1LHaxTp9LT0+zmDwDZrW+V0oA+I0edpRedlGAvcJomv2hwB/1Iapu+O5kVKZ2MUUbLxz/2xAJG/3GCaimMAPkJDcsNNsQCRv9xgmonYTJoQATmS0zFBbSnISJ9NTQ55ZUtnmn8KNCqg95E+KIXhMWjHoKr3pSDTZMdlyRHd9DnEObV/VeJtJ86ZcjvloT0zNeHuZI51muEFbDzbDWgDcC1193HMWbK9KuzeTxg==";
+		try {
+		String aaa=	HandlerRSAUtils.encode("{1:2}");
+			String bbbb=	HandlerRSAUtils.decryption(aaa);
+			System.out.println(bbbb);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		if(!str.equals(str2))
 		{
 			System.out.println("1");

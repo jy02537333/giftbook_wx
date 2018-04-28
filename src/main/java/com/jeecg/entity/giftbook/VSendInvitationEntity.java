@@ -59,8 +59,6 @@ public class VSendInvitationEntity implements java.io.Serializable {
 	 *@return: java.lang.String  id
 	 */
 	@Id
-	@GeneratedValue(generator = "paymentableGenerator")
-	@GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
 	@Column(name ="ID",nullable=true,length=32)
 	public String getId(){
 		return this.id;

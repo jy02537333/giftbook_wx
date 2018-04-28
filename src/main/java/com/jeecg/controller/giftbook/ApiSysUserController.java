@@ -160,7 +160,6 @@ public class ApiSysUserController extends BaseController {
 					if(retEntity.getLoginpassword().equals(signEntity.getLoginpassword()))
 					{
 						retEntity=getSignificanceProperty(signEntity,retEntity);
-						retEntity.setLoginpassword("");
 						String token =saveLoginInfo(retEntity);
 						Map<String, Object> retMap = new HashMap<String, Object>();
 						retMap.put("token", token);
@@ -397,7 +396,7 @@ public class ApiSysUserController extends BaseController {
 		message = "密码修改成功！";
 		int ret=1;
 		SysUserEntity user=sysUserService.findUniqueByProperty(SysUserEntity.class,"loginname",signEntity.getLoginname());
-		if(user.getLoginpassword().equals(signEntity.getOldPwd()))
+		if(user.getLoginpassword().equals(signEntity.getO()))
 		{
 			try {
 				String newPwd=signEntity.getLoginpassword();//记录新密码
@@ -407,7 +406,6 @@ public class ApiSysUserController extends BaseController {
 				String pwd= StringUtil.decodeSpecialCharsWhenLikeUseBackslash( signEntity.getLoginpassword() );//去除特殊字符
 				 ret=sysUserService.updateBySqlString("update sys_user set loginpassword='"+pwd+"' where id='"+signEntity.getId()+"' ");
 //				sysUser=getSignificanceProperty(signEntity,sysUser);
-				signEntity.setLoginpassword("");
 				if(ret>0) {
 					String token = saveLoginInfo(signEntity);
 					Map<String, Object> retMap = new HashMap<String, Object>();
@@ -456,7 +454,6 @@ public class ApiSysUserController extends BaseController {
 					Globals.Log_Leavel_INFO);
 			t=getSignificanceProperty(tokenUser,t);
 			String token =saveLoginInfo(t);
-//			t.setLoginpassword("");
 			Map<String, Object> retMap = new HashMap<String, Object>();
 			retMap.put("token", token);
 			retMap.put("obj", t);
@@ -580,7 +577,6 @@ public class ApiSysUserController extends BaseController {
 	{
 		try {
 			String pwd=signEntity.getLoginpassword();
-//			signEntity.setLoginpassword("");
 			String  token=HandlerRSAUtils.encode(signEntity
 					.toSignString(signEntity.getTimestamp(),
 							signEntity.getDecvices()) );

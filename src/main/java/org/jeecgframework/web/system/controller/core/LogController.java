@@ -24,7 +24,7 @@ import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.JPEGTranscoder;
 import org.apache.batik.transcoder.image.PNGTranscoder;
-import org.apache.fop.svg.PDFTranscoder;
+//import org.apache.fop.svg.PDFTranscoder;
 import org.apache.log4j.Logger;
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.common.hibernate.qbc.CriteriaQuery;
@@ -209,7 +209,7 @@ public class LogController extends BaseController {
 					t = new JPEGTranscoder();
 				} else if (type.equals("application/pdf")) {
 					ext = "pdf";
-					t = (Transcoder) new PDFTranscoder();
+//					t = (Transcoder) new PDFTranscoder();
 				} else if (type.equals("image/svg+xml"))
 					ext = "svg";
 				response.addHeader("Content-Disposition",

@@ -1,6 +1,8 @@
 package com.jeecg.entity.giftbook;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -63,6 +65,7 @@ public class VGroupAndMemberEntity implements java.io.Serializable {
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  Id
 	 */
+	@Id
 	@Column(name ="GROUPID",nullable=false,length=32)
 	public String getGroupid(){
 		return this.groupid;
@@ -144,8 +147,6 @@ public class VGroupAndMemberEntity implements java.io.Serializable {
 	 *@return: java.lang.String  Id
 	 */
 	@Id
-	@GeneratedValue(generator = "paymentableGenerator")
-	@GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
 	@Column(name ="ID",nullable=true,length=32)
 	public String getId(){
 		return this.id;

@@ -33,9 +33,14 @@ public class SysUserEntity extends IdEntity {  //sys_user
 	private String username;
 	/** 登录账号 */
 	private String loginname;
+	private  String n;
+	private  String p;
+	private String o;
+	private String t;
+	private String d;
 	/** 登录密码 */
 	private String loginpassword;
-	private String oldPwd;
+
 	/** 电子邮箱 */
 	private String useremail;
 	/** 所属省Id */
@@ -247,13 +252,24 @@ public class SysUserEntity extends IdEntity {  //sys_user
 	}
 
 	@Transient
-	public String getOldPwd() {
-		return oldPwd;
+	public String getO() {
+		return o;
 	}
-
-	public void setOldPwd(String oldPwd) {
-		this.oldPwd = oldPwd;
+	public void setO(String oldPwd) {
+		this.o = oldPwd;
 	}
+	@Transient
+	public String getN() {		return n;	}
+	public void setN(String n) {		this.n = n;	}
+	@Transient
+	public String getP() {		return p;	}
+	public void setP(String p) {		this.p = p;	}
+	@Transient
+	public String getT() {		return t;	}
+	public void setT(String t) {		this.t = t;	}
+	@Transient
+	public String getD() {		return d;	}
+	public void setD(String d) {		this.d = d;	}
 
 	/**
 	 * 方法: 取得java.lang.String
@@ -596,7 +612,11 @@ public class SysUserEntity extends IdEntity {  //sys_user
 	public void setUpdateName(String updateName) {
 		this.updateName = updateName;
 	}
-
+	public SysUserEntity(){}
+	public SysUserEntity(String n,String p,String o,String d,String t)
+	{
+		loginname=n;		loginpassword=p;		this.o=o;		decvices=d;		timestamp=t;
+	}
 	public String toSignString(String timestampStr, String decvicesStr) {
 		StringBuffer sb = new StringBuffer();
 		sb.append("{\"id\":\"");

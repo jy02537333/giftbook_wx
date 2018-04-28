@@ -11,9 +11,9 @@ import org.jeecgframework.core.util.FileUtils;
 
 /**
  * OFFICE文档转换服务类
- * 
+ *
  * @author 张代浩
- * 
+ *
  */
 public class OpenOfficePDFConverter implements PDFConverter {
 
@@ -52,7 +52,7 @@ public class OpenOfficePDFConverter implements PDFConverter {
 			// TODO: handle exception
 			org.jeecgframework.core.util.LogUtil.info(e.getMessage());
 		}
-		
+
 		stopService();
 	    org.jeecgframework.core.util.LogUtil.info("进行文档转换转换---- 结束----");
 	}
