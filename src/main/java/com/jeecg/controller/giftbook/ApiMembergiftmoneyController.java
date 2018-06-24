@@ -148,11 +148,19 @@ public class ApiMembergiftmoneyController extends BaseController {
 			whereStr.append(" and year(createDate)=:year");
 			kv.put("year",Integer.parseInt(year) );
 		}
+
 		String month=	request.getParameter("month");
 		if(month!=null&&!month.equals("0"))
 		{
 			whereStr.append(" and month(createDate)=:month");
 			kv.put("month",Integer.parseInt(month) );
+		}
+		String name=	request.getParameter("name");
+		if(name!=null&&!name.trim().equals(""))
+		{
+			name="%"+name+"%";
+			whereStr.append(" and GroupMember like :GroupMember");
+			kv.put("GroupMember",name );
 		}
 		whereStr.append(" and createBy=:createBy");
 		kv.put("createBy",request.getParameter("createBy") );
